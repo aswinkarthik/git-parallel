@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -e
+COMMAND=$1
+export COMMAND
+execute(){
+if [ -d $1 ]
+then
+cd $1
+if [ -d .git ] 
+then
+echo "Executing in repo "$1
+git $COMMAND
+echo 
+fi;
+cd - > /dev/null
+fi;
+}
+
+export -f execute
+usage='Usage: gits [git-commad]'
+
+if [ -z "$1" ];
+then
+echo $usage
+else
+ls | parallel --no-notice -j 10 execute {}
+fi;
