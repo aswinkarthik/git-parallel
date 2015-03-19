@@ -15,6 +15,7 @@ gits pull --rebase
 
 ## Requirements
 - Needs GNU Parallel installed
+- ```brew install parallel``` for Mac OSX
 
 ## Working
-Execute all commands parallely. For example, executing ```git pull --rebase``` from the parent directory of all the git repositories will parallely pull your code in all repositories.
+Execute all commands parallely. For example, executing ```gits pull --rebase``` from the parent directory of all the git repositories will parallely pull your code in all repositories.
